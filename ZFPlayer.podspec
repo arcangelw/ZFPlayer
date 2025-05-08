@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
     s.author           = { 'renzifeng' => 'zifeng1300@gmail.com' }
     s.source           = { :git => 'https://github.com/renzifeng/ZFPlayer.git', :tag => s.version.to_s }
     s.social_media_url = 'http://weibo.com/zifeng1300'
-    s.ios.deployment_target = '8.0'
+    s.ios.deployment_target = '13.0'
     s.requires_arc = true
     s.static_framework = true
     s.default_subspec = 'Core'

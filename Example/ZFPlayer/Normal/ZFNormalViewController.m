@@ -92,8 +92,8 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 }
 
 - (void)setupPlayer {
-    ZFAVPlayerManager *playerManager = [[ZFAVPlayerManager alloc] init];
-//    ZFIJKPlayerManager *playerManager = [[ZFIJKPlayerManager alloc] init];
+//    ZFAVPlayerManager *playerManager = [[ZFAVPlayerManager alloc] init];
+    ZFIJKPlayerManager *playerManager = [[ZFIJKPlayerManager alloc] init];
 
     playerManager.shouldAutoPlay = YES;
     
@@ -134,6 +134,9 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 - (void)picBtnClick {
     /// 配置画中画
     ZFAVPlayerManager *manager = (ZFAVPlayerManager *)self.player.currentPlayerManager;
+    if (![manager isKindOfClass:ZFAVPlayerManager.class]) {
+        return;
+    }
     AVPictureInPictureController *vc = [[AVPictureInPictureController alloc] initWithPlayerLayer:manager.avPlayerLayer];
     self.vc = vc;
     ///要有延迟 否则可能开启不成功

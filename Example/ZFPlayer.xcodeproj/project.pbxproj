@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,7 +20,6 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
-		80BE2428ECB65735B49B8FC1 /* libPods-ZFPlayer_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EDC6B3234B489A216C8825 /* libPods-ZFPlayer_Example.a */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		CC112E9A20DBD45E0051EE60 /* ZFMixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC112E9920DBD45E0051EE60 /* ZFMixViewController.m */; };
 		CC112E9D20DBD6600051EE60 /* ZFOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC112E9C20DBD6600051EE60 /* ZFOtherCell.m */; };
@@ -59,6 +58,7 @@
 		D2F268BC22A67564008C1F6D /* ZFDouyinCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F268BB22A67564008C1F6D /* ZFDouyinCollectionViewController.m */; };
 		D2F268C222A67B86008C1F6D /* ZFKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F268C022A67B86008C1F6D /* ZFKeyboardViewController.m */; };
 		D2F268C722A67C62008C1F6D /* ZFRotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F268C622A67C62008C1F6D /* ZFRotationViewController.m */; };
+		F90F37E2FFAC2D6B24A3D84D /* Pods_ZFPlayer_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08427F1135BE35EF3C911F3 /* Pods_ZFPlayer_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +73,6 @@
 
 /* Begin PBXFileReference section */
 		0040F8EE0D7B4F3A7F8AB74C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		19B3D184FECD92F512BC2B45 /* Pods-ZFPlayer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZFPlayer_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZFPlayer_Example/Pods-ZFPlayer_Example.release.xcconfig"; sourceTree = "<group>"; };
-		33764A6C5440702A1511A383 /* Pods_ZFPlayer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZFPlayer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		359925C5989084AB9F6D488A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ZFPlayer_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFPlayer_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,8 +94,9 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C874D8D2F27E9CDA21BC642 /* ZFPlayer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ZFPlayer.podspec; path = ../ZFPlayer.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		880FA6F9C4DCEF2BB4D2644B /* Pods-ZFPlayer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZFPlayer_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZFPlayer_Example/Pods-ZFPlayer_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		A4EDC6B3234B489A216C8825 /* libPods-ZFPlayer_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZFPlayer_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E558CE7AA6EBA8CAA7B0671 /* Pods-ZFPlayer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZFPlayer_Example.debug.xcconfig"; path = "Target Support Files/Pods-ZFPlayer_Example/Pods-ZFPlayer_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A004628787B0B2E262580F7E /* Pods-ZFPlayer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZFPlayer_Example.release.xcconfig"; path = "Target Support Files/Pods-ZFPlayer_Example/Pods-ZFPlayer_Example.release.xcconfig"; sourceTree = "<group>"; };
+		B08427F1135BE35EF3C911F3 /* Pods_ZFPlayer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZFPlayer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC112E9820DBD45E0051EE60 /* ZFMixViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZFMixViewController.h; sourceTree = "<group>"; };
 		CC112E9920DBD45E0051EE60 /* ZFMixViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZFMixViewController.m; sourceTree = "<group>"; };
 		CC112E9B20DBD6600051EE60 /* ZFOtherCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZFOtherCell.h; sourceTree = "<group>"; };
@@ -186,7 +185,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				80BE2428ECB65735B49B8FC1 /* libPods-ZFPlayer_Example.a in Frameworks */,
+				F90F37E2FFAC2D6B24A3D84D /* Pods_ZFPlayer_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +202,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F699ABBA8C6D23FCBC1D161 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8E558CE7AA6EBA8CAA7B0671 /* Pods-ZFPlayer_Example.debug.xcconfig */,
+				A004628787B0B2E262580F7E /* Pods-ZFPlayer_Example.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -211,7 +219,7 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				E3FD7B3AA53BD2041778220B /* Pods */,
+				5F699ABBA8C6D23FCBC1D161 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -236,8 +244,7 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				33764A6C5440702A1511A383 /* Pods_ZFPlayer_Tests.framework */,
-				A4EDC6B3234B489A216C8825 /* libPods-ZFPlayer_Example.a */,
+				B08427F1135BE35EF3C911F3 /* Pods_ZFPlayer_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -521,15 +528,6 @@
 			path = RotationVC;
 			sourceTree = "<group>";
 		};
-		E3FD7B3AA53BD2041778220B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				880FA6F9C4DCEF2BB4D2644B /* Pods-ZFPlayer_Example.debug.xcconfig */,
-				19B3D184FECD92F512BC2B45 /* Pods-ZFPlayer_Example.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -537,11 +535,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "ZFPlayer_Example" */;
 			buildPhases = (
-				8FEFB4EA80BE2D2420F5C74A /* [CP] Check Pods Manifest.lock */,
+				8DB1EB5A1A15C67DE283DEB5 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				750670929024C714EAC9777A /* [CP] Copy Pods Resources */,
+				73DEA395B141019742B71E03 /* [CP] Embed Pods Frameworks */,
+				4702DF67FF6F38DAA04E4BB7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -595,7 +594,7 @@
 				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "ZFPlayer" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -639,36 +638,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		750670929024C714EAC9777A /* [CP] Copy Pods Resources */ = {
+		4702DF67FF6F38DAA04E4BB7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZFPlayer_Example/Pods-ZFPlayer_Example-resources.sh",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/../../ZFPlayer/Classes/ControlView/ZFPlayer.bundle",
+			inputFileListPaths = (
 			);
 			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZFPlayer.bundle",
+			outputFileListPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZFPlayer_Example/Pods-ZFPlayer_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8FEFB4EA80BE2D2420F5C74A /* [CP] Check Pods Manifest.lock */ = {
+		73DEA395B141019742B71E03 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZFPlayer_Example/Pods-ZFPlayer_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DB1EB5A1A15C67DE283DEB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ZFPlayer_Example-checkManifestLockResult.txt",
 			);
@@ -803,10 +816,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 15.6;
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
+				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -836,16 +853,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 15.6;
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
+				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 880FA6F9C4DCEF2BB4D2644B /* Pods-ZFPlayer_Example.debug.xcconfig */;
+			baseConfigurationReference = 8E558CE7AA6EBA8CAA7B0671 /* Pods-ZFPlayer_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -860,21 +881,27 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZFPlayer/ZFPlayer-Prefix.pch";
 				INFOPLIST_FILE = "ZFPlayer/ZFPlayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 1.0;
 				MODULEMAP_FILE = "";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.demo.ZFPlayer11222;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
 				WRAPPER_EXTENSION = app;
+				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19B3D184FECD92F512BC2B45 /* Pods-ZFPlayer_Example.release.xcconfig */;
+			baseConfigurationReference = A004628787B0B2E262580F7E /* Pods-ZFPlayer_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -889,15 +916,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZFPlayer/ZFPlayer-Prefix.pch";
 				INFOPLIST_FILE = "ZFPlayer/ZFPlayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 1.0;
 				MODULEMAP_FILE = "";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.demo.ZFPlayer11222;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
 				WRAPPER_EXTENSION = app;
+				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -917,10 +950,14 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZFPlayer_Example.app/ZFPlayer_Example";
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
 				WRAPPER_EXTENSION = xctest;
+				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -936,10 +973,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZFPlayer_Example.app/ZFPlayer_Example";
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
 				WRAPPER_EXTENSION = xctest;
+				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};

@@ -51,6 +51,12 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    [UIView performWithoutAnimation:^{
+        [self layoutPlayerView];
+    }];
+}
+
+- (void)layoutPlayerView {
     CGFloat min_x = 0;
     CGFloat min_y = 0;
     CGFloat min_w = 0;
@@ -86,6 +92,14 @@
     self.coverImageView.frame = self.playerView.frame;
 }
 
+- (UIImageView *)makeCoverImageView {
+    UIImageView * coverImageView = [[UIImageView alloc] init];
+    coverImageView.userInteractionEnabled = YES;
+    coverImageView.clipsToBounds = YES;
+    coverImageView.contentMode = UIViewContentModeScaleAspectFit;
+    return coverImageView;
+}
+
 - (CGSize)presentationSize {
     if (CGSizeEqualToSize(_presentationSize, CGSizeZero)) {
         _presentationSize = self.frame.size;
@@ -95,10 +109,7 @@
 
 - (UIImageView *)coverImageView {
     if (!_coverImageView) {
-        _coverImageView = [[UIImageView alloc] init];
-        _coverImageView.userInteractionEnabled = YES;
-        _coverImageView.clipsToBounds = YES;
-        _coverImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _coverImageView = [self makeCoverImageView];
     }
     return _coverImageView;
 }

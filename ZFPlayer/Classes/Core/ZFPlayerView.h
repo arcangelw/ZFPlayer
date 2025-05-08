@@ -39,4 +39,9 @@
 /// The cover for playerView.
 @property (nonatomic, strong, readonly) UIImageView *coverImageView;
 
+/// layout player content view.
+- (void)layoutPlayerView;
+
+/// make coverImageView
+- (UIImageView *)makeCoverImageView;
 @end

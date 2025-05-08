@@ -115,6 +115,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView playerManager:(id<ZFPlayerMediaPlayback>)playerManager containerView:(UIView *)containerView;
 
+
+/// Handles changes in the network reachability status.
+/// - Parameter status: The new reachability status, represented by `ZFReachabilityStatus`.
+/// This method is called when the network reachability status changes, allowing the system to react to changes in the network state.
+- (void)reachabilityStatusChanged:(ZFReachabilityStatus)status;
 @end
 
 @interface ZFPlayerController (ZFPlayerTimeControl)

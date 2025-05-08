@@ -58,19 +58,29 @@ static NSMutableDictionary <NSString* ,NSNumber *> *_zfPlayRecords;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             _zfPlayRecords = @{}.mutableCopy;
+            [[ZFReachabilityManager sharedManager] startMonitoring];
         });
-        @zf_weakify(self)
-        [[ZFReachabilityManager sharedManager] startMonitoring];
-        [[ZFReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(ZFReachabilityStatus status) {
-            @zf_strongify(self)
-            if ([self.controlView respondsToSelector:@selector(videoPlayer:reachabilityChanged:)]) {
-                [self.controlView videoPlayer:self reachabilityChanged:status];
-            }
-        }];
+        [self startListeningForReachabilityChanges];
         [self configureVolume];
     }
     return self;
 }
+
+- (void)startListeningForReachabilityChanges {
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver:self selector:@selector(handleReachabilityStatusChanged:) name:ZFReachabilityDidChangeNotification object:nil];
+}
+
+- (void)handleReachabilityStatusChanged:(NSNotification *)notification {
+    ZFReachabilityStatus status = (ZFReachabilityStatus)[notification.userInfo[ZFReachabilityNotificationStatusItem] integerValue];
+    [self reachabilityStatusChanged:status];
+    if ([self.controlView respondsToSelector:@selector(videoPlayer:reachabilityChanged:)]) {
+        [self.controlView videoPlayer:self reachabilityChanged:status];
+    }
+}
+
+- (void)reachabilityStatusChanged:(ZFReachabilityStatus)status {}
+
 
 /// Get system volume
 - (void)configureVolume {
@@ -85,6 +95,8 @@ static NSMutableDictionary <NSString* ,NSNumber *> *_zfPlayRecords;
 }
 
 - (void)dealloc {
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter removeObserver:self name:ZFReachabilityDidChangeNotification object:nil];
     [self.currentPlayerManager stop];
 }
 

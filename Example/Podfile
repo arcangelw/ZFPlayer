@@ -1,9 +1,33 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform:ios, '8.0'
+install! ‘cocoapods’,
+        :disable_input_output_paths => true,
+        :generate_multiple_pod_projects => true,
+        :incremental_installation => true
+
+post_install do |installer|
+  installer.pod_target_subprojects.flat_map { |p| p.targets }.each do |t|
+    t.build_configurations.each do |c|
+        c.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+        c.build_settings['ENABLE_BITCODE'] = 'NO'
+        c.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+        c.build_settings['VALID_ARCHS'] = 'x86_64 arm64'
+        c.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+    end
+  end
+end
+
 
 target 'ZFPlayer_Example' do
-    pod 'FDFullscreenPopGesture'
-    pod 'MJRefresh'
-    pod 'ZFPlayer', :path => '../'
-
+  use_frameworks! :linkage => :static
+  inhibit_all_warnings!
+  use_modular_headers!
+  platform :ios, '13.0'
+  pod 'FDFullscreenPopGesture'
+  pod 'MJRefresh'
+  pod 'ZFPlayer', :path => '../'
+  pod 'ZFPlayer/ControlView', :path => '../'
+  pod 'ZFPlayer/AVPlayer', :path => '../'
+  pod 'ZFPlayer/ijkplayer', :path => '../'
+  pod "IJKMediaFramework", :podspec => 'https://github.com/debugly/ijkplayer/releases/download/k0.8.9/IJKMediaFramework.spec.json'
+  pod 'LookinServer', :configurations => ['Debug']
 end

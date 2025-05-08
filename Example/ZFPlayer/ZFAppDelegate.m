@@ -9,6 +9,7 @@
 #import "ZFAppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 #import <ZFPlayer/ZFLandscapeRotationManager.h>
+
 @implementation ZFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
