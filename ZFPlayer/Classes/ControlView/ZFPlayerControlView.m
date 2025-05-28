@@ -367,32 +367,34 @@
 
 /// 开始滑动手势事件
 - (void)gestureBeganPan:(ZFPlayerGestureControl *)gestureControl panDirection:(ZFPanDirection)direction panLocation:(ZFPanLocation)location {
-    if (direction == ZFPanDirectionH) {
+    if (direction == ZFPanDirectionHorizontal) {
         self.sumTime = self.player.currentTime;
     }
 }
 
 /// 滑动中手势事件
-- (void)gestureChangedPan:(ZFPlayerGestureControl *)gestureControl panDirection:(ZFPanDirection)direction panLocation:(ZFPanLocation)location withVelocity:(CGPoint)velocity {
-    if (direction == ZFPanDirectionH) {
-        // 每次滑动需要叠加时间
-        self.sumTime += velocity.x / 200;
+- (void)gestureChangedPan:(ZFPlayerGestureControl *)gestureControl panDirection:(ZFPanDirection)direction panLocation:(ZFPanLocation)location withTranslation:(CGPoint)translation {
+    if (direction == ZFPanDirectionHorizontal) {
         // 需要限定sumTime的范围
         NSTimeInterval totalMovieDuration = self.player.totalTime;
         if (totalMovieDuration == 0) return;
+        // 每次滑动需要叠加时间
+        if (self.bottomPgrogress.bounds.size.width > 0 ) {
+            self.sumTime += (translation.x / self.bottomPgrogress.bounds.size.width) * totalMovieDuration * 2.0;
+        }
         if (self.sumTime > totalMovieDuration) self.sumTime = totalMovieDuration;
         if (self.sumTime < 0) self.sumTime = 0;
         BOOL style = NO;
-        if (velocity.x > 0) style = YES;
-        if (velocity.x < 0) style = NO;
-        if (velocity.x == 0) return;
+        if (translation.x > 0) style = YES;
+        if (translation.x < 0) style = NO;
+        if (translation.x == 0) return;
         [self sliderValueChangingValue:self.sumTime/totalMovieDuration isForward:style];
-    } else if (direction == ZFPanDirectionV) {
+    } else if (direction == ZFPanDirectionVertical) {
         if (location == ZFPanLocationLeft) { /// 调节亮度
-            self.player.brightness -= (velocity.y) / 10000;
+            self.player.brightness -= (translation.y * 2) / self.bounds.size.height;
             [self.volumeBrightnessView updateProgress:self.player.brightness withVolumeBrightnessType:ZFVolumeBrightnessTypeumeBrightness];
         } else if (location == ZFPanLocationRight) { /// 调节声音
-            self.player.volume -= (velocity.y) / 10000;
+            self.player.volume -= (translation.y * 2) / self.bounds.size.height;
             if (self.player.isFullScreen) {
                 [self.volumeBrightnessView updateProgress:self.player.volume withVolumeBrightnessType:ZFVolumeBrightnessTypeVolume];
             }
@@ -403,7 +405,7 @@
 /// 滑动结束手势事件
 - (void)gestureEndedPan:(ZFPlayerGestureControl *)gestureControl panDirection:(ZFPanDirection)direction panLocation:(ZFPanLocation)location {
     @zf_weakify(self)
-    if (direction == ZFPanDirectionH && self.sumTime >= 0 && self.player.totalTime > 0) {
+    if (direction == ZFPanDirectionHorizontal && self.sumTime >= 0 && self.player.totalTime > 0) {
         [self.player seekToTime:self.sumTime completionHandler:^(BOOL finished) {
             if (finished) {
                 @zf_strongify(self)
@@ -420,6 +422,7 @@
             [self.player.currentPlayerManager play];
         }
         self.sumTime = 0;
+        NSLog(@"Pan End slider direction: %@", @(direction));
     }
 }
 

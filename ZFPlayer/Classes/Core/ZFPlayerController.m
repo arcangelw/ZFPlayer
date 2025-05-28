@@ -1048,10 +1048,10 @@ static NSMutableDictionary <NSString* ,NSNumber *> *_zfPlayRecords;
             }
         };
         
-        gestureControl.changedPan = ^(ZFPlayerGestureControl * _Nonnull control, ZFPanDirection direction, ZFPanLocation location, CGPoint velocity) {
+        gestureControl.changedPan = ^(ZFPlayerGestureControl * _Nonnull control, ZFPanDirection direction, ZFPanLocation location, CGPoint translation) {
             @zf_strongify(self)
-            if ([self.controlView respondsToSelector:@selector(gestureChangedPan:panDirection:panLocation:withVelocity:)]) {
-                [self.controlView gestureChangedPan:control panDirection:direction panLocation:location withVelocity:velocity];
+            if ([self.controlView respondsToSelector:@selector(gestureChangedPan:panDirection:panLocation:withTranslation:)]) {
+                [self.controlView gestureChangedPan:control panDirection:direction panLocation:location withTranslation:translation];
             }
         };
         

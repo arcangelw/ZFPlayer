@@ -35,7 +35,7 @@
 @property (nonatomic) ZFPanLocation panLocation;
 @property (nonatomic) ZFPanMovingDirection panMovingDirection;
 @property (nonatomic, weak) UIView *targetView;
-
+@property (nonatomic, assign) BOOL panDirectionEvaluated;
 @end
 
 @implementation ZFPlayerGestureControl
@@ -80,6 +80,7 @@
     else if (gestureRecognizer == self.doubleTap) type = ZFPlayerGestureTypeDoubleTap;
     else if (gestureRecognizer == self.panGR) type = ZFPlayerGestureTypePan;
     else if (gestureRecognizer == self.pinchGR) type = ZFPlayerGestureTypePinch;
+    else if (gestureRecognizer == self.longPressGR) type = ZFPlayerGestureTypeLongPress;
     CGPoint locationPoint = [touch locationInView:touch.view];
     if (locationPoint.x > _targetView.bounds.size.width / 2) {
         self.panLocation = ZFPanLocationRight;
@@ -113,7 +114,7 @@
             }
         }
             break;
-        case ZFPlayerDisableGestureTypesLongPress: {
+        case ZFPlayerGestureTypeLongPress: {
             if (self.disableTypes & ZFPlayerDisableGestureTypesLongPress) {
                 return NO;
             }
@@ -210,36 +211,38 @@
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)pan {
-    CGPoint translate = [pan translationInView:pan.view];
-    CGPoint velocity = [pan velocityInView:pan.view];
+    CGPoint translation = [pan translationInView:pan.view];
     switch (pan.state) {
         case UIGestureRecognizerStateBegan: {
             self.panMovingDirection = ZFPanMovingDirectionUnkown;
-            CGFloat x = fabs(velocity.x);
-            CGFloat y = fabs(velocity.y);
-            if (x > y) {
-                self.panDirection = ZFPanDirectionH;
-            } else if (x < y) {
-                self.panDirection = ZFPanDirectionV;
-            } else {
-                self.panDirection = ZFPanDirectionUnknown;
-            }
-            
-            if (self.beganPan) self.beganPan(self, self.panDirection, self.panLocation);
+            self.panDirectionEvaluated = NO;
         }
             break;
         case UIGestureRecognizerStateChanged: {
+            if (!self.panDirectionEvaluated) {
+                CGFloat x = fabs(translation.x);
+                CGFloat y = fabs(translation.y);
+                if (x > y) {
+                    self.panDirection = ZFPanDirectionHorizontal;
+                } else if (x < y) {
+                    self.panDirection = ZFPanDirectionVertical;
+                } else {
+                    self.panDirection = ZFPanDirectionUnknown;
+                }
+                self.panDirectionEvaluated = YES;
+                if (self.beganPan) self.beganPan(self, self.panDirection, self.panLocation);
+            }
             switch (_panDirection) {
-                case ZFPanDirectionH: {
-                    if (translate.x > 0) {
+                case ZFPanDirectionHorizontal: {
+                    if (translation.x > 0) {
                         self.panMovingDirection = ZFPanMovingDirectionRight;
                     } else {
                         self.panMovingDirection = ZFPanMovingDirectionLeft;
                     }
                 }
                     break;
-                case ZFPanDirectionV: {
-                    if (translate.y > 0) {
+                case ZFPanDirectionVertical: {
+                    if (translation.y > 0) {
                         self.panMovingDirection = ZFPanMovingDirectionBottom;
                     } else {
                         self.panMovingDirection = ZFPanMovingDirectionTop;
@@ -249,7 +252,7 @@
                 case ZFPanDirectionUnknown:
                     break;
             }
-            if (self.changedPan) self.changedPan(self, self.panDirection, self.panLocation, velocity);
+            if (self.changedPan) self.changedPan(self, self.panDirection, self.panLocation, translation);
         }
             break;
         case UIGestureRecognizerStateFailed:

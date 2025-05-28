@@ -31,13 +31,14 @@ typedef NS_ENUM(NSUInteger, ZFPlayerGestureType) {
     ZFPlayerGestureTypeSingleTap,
     ZFPlayerGestureTypeDoubleTap,
     ZFPlayerGestureTypePan,
-    ZFPlayerGestureTypePinch
+    ZFPlayerGestureTypePinch,
+    ZFPlayerGestureTypeLongPress
 };
 
 typedef NS_ENUM(NSUInteger, ZFPanDirection) {
     ZFPanDirectionUnknown,
-    ZFPanDirectionV,
-    ZFPanDirectionH,
+    ZFPanDirectionVertical,
+    ZFPanDirectionHorizontal
 };
 
 typedef NS_ENUM(NSUInteger, ZFPanLocation) {
@@ -95,7 +96,7 @@ typedef NS_ENUM(NSUInteger, ZFLongPressGestureRecognizerState) {
 @property (nonatomic, copy, nullable) void(^beganPan)(ZFPlayerGestureControl *control, ZFPanDirection direction, ZFPanLocation location);
 
 /// Pan gesture changing callback.
-@property (nonatomic, copy, nullable) void(^changedPan)(ZFPlayerGestureControl *control, ZFPanDirection direction, ZFPanLocation location, CGPoint velocity);
+@property (nonatomic, copy, nullable) void(^changedPan)(ZFPlayerGestureControl *control, ZFPanDirection direction, ZFPanLocation location, CGPoint translate);
 
 /// End the Pan gesture callback.
 @property (nonatomic, copy, nullable) void(^endedPan)(ZFPlayerGestureControl *control, ZFPanDirection direction, ZFPanLocation location);

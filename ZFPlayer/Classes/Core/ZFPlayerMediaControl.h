@@ -152,7 +152,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)gestureChangedPan:(ZFPlayerGestureControl *)gestureControl
              panDirection:(ZFPanDirection)direction
               panLocation:(ZFPanLocation)location
-             withVelocity:(CGPoint)velocity;
+             withTranslation:(CGPoint)translation;
 
 /**
  When the end panGesture
