@@ -22,17 +22,45 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
 
-//! Project version number for ZFPlayer.
-FOUNDATION_EXPORT double ZFPlayerVersionNumber;
-
-//! Project version string for ZFPlayer.
-FOUNDATION_EXPORT const unsigned char ZFPlayerVersionString[];
-
+#if __has_include(<ZFPlayer/ZFPlayer.h>)
+#import <ZFPlayer/ZFPlayerController.h>
+#import <ZFPlayer/ZFPlayerMediaControl.h>
+#import <ZFPlayer/ZFKVOController.h>
+#import <ZFPlayer/UIScrollView+ZFPlayer.h>
+#import <ZFPlayer/ZFPlayerLogManager.h>
+#import <ZFPlayer/ZFPlayerConst.h>
+// other
+#import <ZFPlayer/ZFLandscapeRotationManager.h>
+#import <ZFPlayer/ZFLandscapeRotationManager_iOS15.h>
+#import <ZFPlayer/ZFLandscapeRotationManager_iOS16.h>
+#import <ZFPlayer/ZFLandscapeViewController.h>
+#import <ZFPlayer/ZFLandscapeViewController_iOS15.h>
+#import <ZFPlayer/ZFPersentInteractiveTransition.h>
+#import <ZFPlayer/ZFPortraitViewController.h>
+#import <ZFPlayer/ZFPortraitViewController.h>
+#import <ZFPlayer/ZFPresentTransition.h>
+#else
 #import "ZFPlayerController.h"
 #import "ZFPlayerMediaControl.h"
 #import "ZFKVOController.h"
 #import "UIScrollView+ZFPlayer.h"
 #import "ZFPlayerLogManager.h"
 #import "ZFPlayerConst.h"
+// other
+#import "ZFLandscapeRotationManager.h"
+#import "ZFLandscapeRotationManager_iOS15.h"
+#import "ZFLandscapeRotationManager_iOS16.h"
+#import "ZFLandscapeViewController.h"
+#import "ZFLandscapeViewController_iOS15.h"
+#import "ZFPersentInteractiveTransition.h"
+#import "ZFPortraitViewController.h"
+#import "ZFPortraitViewController.h"
+#import "ZFPresentTransition.h"
+#endif
+
+//! Project version number for ZFPlayer.
+FOUNDATION_EXPORT double ZFPlayerVersionNumber;
+
+//! Project version string for ZFPlayer.
+FOUNDATION_EXPORT const unsigned char ZFPlayerVersionString[];

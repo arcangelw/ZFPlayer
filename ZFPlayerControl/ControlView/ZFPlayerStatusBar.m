@@ -26,7 +26,11 @@
 #import <CoreTelephony/CTCarrier.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import "UIView+ZFFrame.h"
+#if __has_include(<ZFPlayer/ZFPlayer.h>)
+#import <ZFPlayer/ZFReachabilityManager.h>
+#else
 #import "ZFReachabilityManager.h"
+#endif
 #import "ZFUtilities.h"
 
 @interface ZFPlayerTimerTarget: NSProxy

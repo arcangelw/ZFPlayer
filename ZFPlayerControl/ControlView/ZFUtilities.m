@@ -55,7 +55,13 @@
     static NSBundle *bundle = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"ZFPlayer" ofType:@"bundle"]];
+        NSArray *bundleNames = @[@"ZFPlayer", @"ZFPlayerControl", @"ZFPlayer_ZFPlayerControl"];
+        for (NSString *name in bundleNames) {
+            bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:name ofType:@"bundle"]];
+            if (bundle) {
+                break;
+            }
+        }
     });
     return bundle;
 }
